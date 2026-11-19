@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contacto | Huellitas Veterinaria</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+    <style>
+        body {
+            background-color: #f3faf7;
+            font-family: Arial, sans-serif;
+        }
+        .encabezado {
+            background-color: #176b58;
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+        .tarjeta {
+            background-color: white;
+            padding: 35px;
+            margin-top: 35px;
+            margin-bottom: 35px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+        .telefono {
+            color: #176b58;
+            font-size: 25px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<header class="encabezado">
+    <h1>🐾 Huellitas Veterinaria</h1>
+    <p class="mb-0">Estamos para cuidar a tu mascota</p>
+</header>
+<main class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-7">
+            <div class="tarjeta">
+                <h2 class="text-success text-center">📩 Contáctanos</h2>
+                <p class="text-center mt-3">
+                    ¿Tenés alguna consulta? Completá el formulario y con gusto te atenderemos.
+                </p>
+                <!-- Mensaje de agradecimiento -->
+                <div th:if="${mensajeExito}"
+                     class="alert alert-success"
+                     th:text="${mensajeExito}">
+                </div>
+                <!-- Formulario de contacto -->
+                <form th:action="@{/contacto}" method="post">
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">
+                            Nombre completo:
+                        </label>
+                        <input type="text" id="nombre" name="nombre"
+                               class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="correo" class="form-label">
+                            Correo electrónico:
+                        </label>
+                        <input type="email" id="correo" name="correo"
+                               class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="nombreMascota" class="form-label">
+                            Nombre de la mascota:
+                        </label>
+                        <input type="text" id="nombreMascota" name="nombreMascota"
+                               class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="mensaje" class="form-label">
+                            Mensaje o consulta:
+                        </label>
+                        <textarea id="mensaje" name="mensaje"
+                                  class="form-control" rows="4"
+                                  required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-success w-100">
+                        Enviar consulta
+                    </button>
+                </form>
+                <hr class="my-4">
+                <p class="text-center">También podés llamarnos:</p>
+                <p class="telefono text-center">
+                    <a href="tel:88888888"
+                       style="color: inherit; text-decoration: none;">
+                        8888-8888
+                    </a>
+                </p>
+                <div class="text-center">
+                    <a th:href="@{/}" class="btn btn-secondary mt-2">
+                        Volver al inicio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tipos de servicio</title>
+</head>
+<body>
+    <h1>Tipos de servicio veterinario</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Descripción</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="tipo : ${tiposServicio}">
+                <td th:text="${tipo.nombre}"></td>
+                <td th:text="${tipo.descripcion}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
